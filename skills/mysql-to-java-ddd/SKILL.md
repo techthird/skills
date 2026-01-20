@@ -96,18 +96,18 @@ private String orderNo;
 
 ### 整体架构
 ```
-yxt-payment/
-├── yxt-payment-server/        # 主应用模块 - 业务逻辑实现
-├── yxt-payment-sdk/           # 内部SDK - 供内部系统调用
-├── yxt-payment-open-sdk/      # 开放SDK - 供外部合作伙伴调用
-├── yxt-payment-dao/           # 数据访问层
-├── yxt-payment-common/        # 公共组件
-└── yxt-payment-anticorruption/ # 防腐层 - 外部系统适配
+shop-payment/
+├── shop-payment-server/        # 主应用模块 - 业务逻辑实现
+├── shop-payment-sdk/           # 内部SDK - 供内部系统调用
+├── shop-payment-open-sdk/      # 开放SDK - 供外部合作伙伴调用
+├── shop-payment-dao/           # 数据访问层
+├── shop-payment-common/        # 公共组件
+└── shop-payment-anticorruption/ # 防腐层 - 外部系统适配
 ```
 
 ### 核心包结构
 ```
-com.yxt.payment.server.{domain}/
+com.shop.payment.server.{domain}/
 ├── entrance/                  # 入口层
 │   ├── api/                  # SDK接口实现(操作类)
 │   │   └── *OperateApiImpl.java
@@ -138,7 +138,7 @@ com.yxt.payment.server.{domain}/
 
 ### SDK包结构
 ```
-com.yxt.payment.sdk.{domain}/
+com.shop.payment.sdk.{domain}/
 ├── *OperateApi.java          # 操作接口(新增、修改)
 ├── *QueryApi.java            # 查询接口(查询、分页)
 ├── request/                  # 请求DTO
@@ -152,7 +152,7 @@ com.yxt.payment.sdk.{domain}/
 
 ### DAO包结构
 ```
-com.yxt.payment.dao.{domain}/
+com.shop.payment.dao.{domain}/
 ├── mapper/                   # MyBatis Mapper
 │   └── *Mapper.java
 └── dataobject/              # 数据对象
@@ -219,8 +219,8 @@ com.yxt.payment.dao.{domain}/
 
 #### 1. SDK模块代码
 ```
-yxt-payment-sdk/
-└── src/main/java/com/yxt/payment/sdk/{domain}/
+shop-payment-sdk/
+└── src/main/java/com/shop/payment/sdk/{domain}/
     ├── PaymentOrderOperateApi.java      # 操作接口
     ├── PaymentOrderQueryApi.java        # 查询接口
     ├── request/
@@ -234,8 +234,8 @@ yxt-payment-sdk/
 
 #### 2. Server模块代码
 ```
-yxt-payment-server/
-└── src/main/java/com/yxt/payment/server/{domain}/
+shop-payment-server/
+└── src/main/java/com/shop/payment/server/{domain}/
     ├── entrance/api/
     │   ├── PaymentOrderOperateApiImpl.java
     │   └── PaymentOrderQueryApiImpl.java
@@ -258,8 +258,8 @@ yxt-payment-server/
 
 #### 3. DAO模块代码
 ```
-yxt-payment-dao/
-└── src/main/java/com/yxt/payment/dao/{domain}/
+shop-payment-dao/
+└── src/main/java/com/shop/payment/dao/{domain}/
     ├── mapper/
     │   └── PaymentOrderMapper.java
     └── dataobject/
